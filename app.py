@@ -31,9 +31,26 @@ def accounts():
 def signed_in():
    return render_template('signed_in.html')
 
-# chat page methods
-@app.route('/logined')
+# chat and account page methods
+@app.route('/send_message', methods=['POST'])
+def send_message():
+    # Access the submitted message from the request form
+    message = request.form['message']
+    save_message(username, message)
+
+    # Append the message to the chat history
+    # chat_history.append(str(username, ": ", message))
+
+
+    return render_template('index.html', message_sent=True)  # Pass data to template
+
+@app.route('/logined', methods=['POST'])
 def logined():
+   username = request.form['username']
+   password = request.form['password']
+
+   login_func(username, password)
+
    return render_template('signed_in.html')
 
 if __name__ == '__main__':
