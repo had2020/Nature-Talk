@@ -1,20 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Login Screen</title>
-  <link rel="stylesheet" href="static/styles/codecss.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Chat App</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/style.css') }}">
 </head>
 <body>
-  <div class="container">
-    <h1>Login</h1>
-    <form action="{{ url_for('logined') }}" method="POST">  <label for="username">Username:</label>
-      <input type="text" id="username" name="username" placeholder="Enter username">
-      <label for="password">Password:</label>
-      <input type="password" id="password" name="password" placeholder="Enter password">
-      <button type="submit">Sign In</button>
+    <h1>Chat Room</h1>
+    <div id="chat-history">
+        </div>
+        <form id="message-form" action="{{ url_for('send_message') }}" method="POST">
+        <input type="text" name="message" placeholder="Type your message here..." required>
+        <button type="submit">Send</button>
     </form>
-  </div>
-</body>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="{{ url_for('static', filename='styles/script.js') }}"></script>
 </html>
