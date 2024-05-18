@@ -5,6 +5,8 @@ from models import login_func, save_message # imports fuction from models.py
 username = ""
 password = ""
 
+has_logined = False
+
 app = Flask(__name__)
 
 # rendering page templates
@@ -14,7 +16,10 @@ def index():
 
 @app.route('/chat')
 def chat():
-   return render_template('chat.html')
+   if has_logined == False:
+      return render_template('login_waring.html')
+   if has_logined == True:
+      return render_template('chat.html')
 
 @app.route('/mission')
 def mission():
@@ -40,6 +45,7 @@ def signed_in():
 @app.route('/send_message', methods=['POST'])
 def send_message():
     # Access the submitted message from the request form
+    print("test")
     message = request.form['message']
     save_message(username, message)
 
