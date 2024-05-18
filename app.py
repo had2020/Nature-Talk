@@ -12,7 +12,7 @@ app = Flask(__name__)
 # rendering page templates
 @app.route('/')
 def index():
-    return render_template('main.html')
+    return render_template('home.html')
 
 @app.route('/chat')
 def chat():
@@ -44,6 +44,10 @@ def signed_in():
 @app.route('/login')
 def login():
    return render_template('login.html')
+
+@app.route('/home')
+def home():
+   return render_template('home.html')
 
 # chat and account page methods
 @app.route('/send_message', methods=['POST'])
