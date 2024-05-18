@@ -1,4 +1,9 @@
 from flask import Flask, render_template, request
+from models import login_func, save_message # imports fuction from models.py
+
+# variables
+username = ""
+password = ""
 
 app = Flask(__name__)
 
