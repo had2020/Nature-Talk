@@ -41,6 +41,10 @@ def accounts():
 def signed_in():
    return render_template('signed_in.html')
 
+@app.route('/login')
+def login():
+   return render_template('login.html')
+
 # chat and account page methods
 @app.route('/send_message', methods=['POST'])
 def send_message():
