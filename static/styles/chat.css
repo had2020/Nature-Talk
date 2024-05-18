@@ -1,0 +1,30 @@
+body {
+    font-family: sans-serif;
+}
+
+h1 {
+    text-align: center;
+    padding: 20px;
+}
+
+#chat-history {
+    border: 1px solid #838383;
+    padding: 10px;
+    height: 300px;
+    overflow-y: scroll; /*scrolling for chat history */
+}
+
+.message {
+    margin-bottom: 10px;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.message.self {
+    background-color: #eee;
+    text-align: right;
+}
+
+.message.other {
+    background-color: #f5f5f5;
+}
