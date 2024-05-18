@@ -10,5 +10,17 @@ def index():
 def chat():
    return render_template('chat.html')
 
+@app.route('/mission')
+def chat():
+   return render_template('mission.html')
+
+@app.route('/qna')
+def chat():
+   return render_template('qna.html')
+
+@app.route('/about')
+def chat():
+   return render_template('about.html')
+
 if __name__ == '__main__':
   app.run(debug=True)
