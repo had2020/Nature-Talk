@@ -1,14 +1,20 @@
-<!doctype html>
-<html lang=”en”>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-<meta charset=”utf-8″>
-<title>Nature</title>
-<meta name=”description” content=”This is the description that search engines will display. Aim for 145-155 characters.”>
-<meta name=”author” content=”Insert the content author or owner name here”>
-<script src=”static/test.js”></script>
-<link rel="stylesheet" href="static/styles/codecss.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login Screen</title>
+  <link rel="stylesheet" href="static/styles/codecss.css">
 </head>
 <body>
-  <h1>Chat Here</h1>
+  <div class="container">
+    <h1>Login</h1>
+    <form action="{{ url_for('logined') }}" method="POST">  <label for="username">Username:</label>
+      <input type="text" id="username" name="username" placeholder="Enter username">
+      <label for="password">Password:</label>
+      <input type="password" id="password" name="password" placeholder="Enter password">
+      <button type="submit">Sign In</button>
+    </form>
+  </div>
 </body>
 </html>
