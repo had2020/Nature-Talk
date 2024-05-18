@@ -1,7 +1,6 @@
 import openai
 
 # Set your OpenAI API key
-openai.api_key = ''
 
 # Generate response from ChatGPT
 response = openai.Completion.create(
