@@ -1,8 +1,32 @@
 body {
-    background-color:#115300;
-    }
+    font-family: sans-serif;
+}
 
 h1 {
-     color: rgb(0, 8, 255);
-        text-align: center;
-    }
+    text-align: center;
+    padding: 20px;
+    color: rgb(255, 255, 255);
+    background-color: rgb(4, 81, 0);
+}
+
+nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  nav li {
+    margin-right: 20px;
+  }
+  
+  nav a {
+    text-decoration: none;
+    color: #333;
+  }
+  
+  nav a:hover {
+    color: #666;
+  }
