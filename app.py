@@ -12,7 +12,7 @@ app = Flask(__name__)
 # rendering page templates
 @app.route('/')
 def index():
-    return render_template('index.html')
+    return render_template('main.html')
 
 @app.route('/chat')
 def chat():
