@@ -56,7 +56,7 @@ def home():
 def test_vid():
    return render_template('test_vid.html')
 
-@app.route('sus_music')
+@app.route('/sus_music')
 def sus_music():
    return render_template('sus_music.html')
 
