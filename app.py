@@ -7,6 +7,17 @@ password = ""
 
 has_logined = False
 
+posts = [
+   {
+      'author': 'Server',
+      'message': 'Welcome to the chat'
+   },
+   {
+      'author': 'Jone Doe',
+      'message': 'Test message'
+   }
+]
+
 app = Flask(__name__)
 
 # rendering page templates
@@ -19,7 +30,7 @@ def chat():
    if has_logined == False:
       return render_template('login_waring.html')
    if has_logined == True:
-      return render_template('chat.html')
+      return render_template('chat.html', posts=posts)
 
 @app.route('/mission')
 def mission():
@@ -67,8 +78,6 @@ def send_message():
     message = request.form['message']
     save_message(username, message)
 
-    add_history()
-
     return render_template('chat.html', message_sent=True)  # Pass data to template
 
 @app.route('/logined', methods=['POST'])
@@ -84,13 +93,15 @@ def logined():
 
    return render_template('signed_in.html')
 
-# Append the message to the chat history
-def add_history():
-   print("add history function ran")
-   text = "Hello, World!"
-   html = render_template('chat.html')
-   new_html = html.replace("Old text", text)
-   return new_html
+def append_message(username, message):
+   # creating the dictionary, to append
+   new_post = {
+      'author': username,  
+      'message': message
+   }
+
+   # appending new dictionary
+   posts.append(new_post)
 
 if __name__ == '__main__':
   app.run(debug=True)
