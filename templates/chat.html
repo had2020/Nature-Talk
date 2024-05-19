@@ -17,16 +17,4 @@
     </form>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="{{ url_for('static', filename='styles/chat.js') }}"></script>
-    <script>
-        var eventSource = new EventSource("/messages"); // Replace with your Flask route
-
-        eventSource.onmessage = function(event) {
-            var message = JSON.parse(event.data);
-            addMessage(message.text, message.type); // Call your existing addMessage function
-        };
-
-        function addMessage(message, type) {
-            // Same as before (create and display message)
-        }
-    </script>
 </html>
