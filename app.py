@@ -67,7 +67,7 @@ def send_message():
     # Append the message to the chat history
     # chat_history.append(str(username, ": ", message))
 
-
+    add_chat_message("test message add")
     return render_template('index.html', message_sent=True)  # Pass data to template
 
 @app.route('/logined', methods=['POST'])
@@ -86,7 +86,8 @@ def logined():
 
 # adding chat messages
 def add_chat_message(text):
-   message = request.form[text]
-   message.append({"message": message})
+   message = request.form["<div class='message " + "<h1></h1>" + "'></div>"]
+   message.append({"message": text})
+
 if __name__ == '__main__':
   app.run(debug=True)
