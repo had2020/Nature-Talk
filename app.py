@@ -97,7 +97,7 @@ def send_message():
 
     reload_chat()
 
-    return render_template('chat.html', message_sent=True)  # Pass data to template
+    return render_template('chat.html', message_sent=True, posts=message_history)  # Pass data to template
 
 @app.route('/logined', methods=['POST'])
 def logined():
