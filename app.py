@@ -96,6 +96,8 @@ def send_message():
     message = request.form['message']
     save_message(username, message)
 
+    reload_chat()
+
     return render_template('chat.html', message_sent=True)  # Pass data to template
 
 @app.route('/logined', methods=['POST'])
@@ -126,7 +128,12 @@ def append_message(username, message):
 def reload_chat():
    global message_history
    message_history = pull_messages()
+   print(message_history)
 
+@app.route('/reload_chat')
+def reload():
+   reload_chat
+   return render_template('chat.html', posts=message_history)
 
 if __name__ == '__main__':
   app.run(debug=True)
