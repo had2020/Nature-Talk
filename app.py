@@ -52,6 +52,10 @@ def login():
 def home():
    return render_template('home.html')
 
+@app.route('/test_vid')
+def test_vid():
+   return render_template('test_vid.html')
+
 # chat and account page methods
 @app.route('/send_message', methods=['POST'])
 def send_message():
@@ -80,5 +84,9 @@ def logined():
 
    return render_template('signed_in.html')
 
+# adding chat messages
+def add_chat_message(text):
+   message = request.form[text]
+   message.append({"message": message})
 if __name__ == '__main__':
   app.run(debug=True)
