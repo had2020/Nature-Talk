@@ -7,6 +7,8 @@ password = ""
 
 has_logined = False
 
+message_history = None
+
 # Example of what pull message should return
 """
 posts = [
@@ -32,7 +34,8 @@ def chat():
    if has_logined == False:
       return render_template('login_waring.html')
    if has_logined == True:
-      return render_template('chat.html', posts=posts)
+      reload_chat()
+      return render_template('chat.html', posts=message_history)
 
 @app.route('/mission')
 def mission():
@@ -46,10 +49,10 @@ def qna():
 def about():
    return render_template('about.html')
 
-@app.route('/accounts')
-def accounts():
+@app.route('/account')
+def account():
    if has_logined == True:
-      return render_template('account.html')
+      return render_template('account.html', name = username)
    else:
       return render_template('login_waring.html')
 
@@ -105,10 +108,12 @@ def append_message(username, message):
    }
 
    # appending new dictionary
-   posts.append(new_post)
+   #posts.append(new_post) TODO finalizing messaging feature, and adding reload button to run reload_chat()
 
 def reload_chat():
-   pull_messages()
+   global message_history
+   message_history = pull_messages()
+
 
 if __name__ == '__main__':
   app.run(debug=True)
