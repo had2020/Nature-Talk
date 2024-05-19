@@ -1,5 +1,5 @@
 from flask import Flask, render_template, request
-from models import login_func, save_message # imports fuction from models.py
+from models import login_func, save_message, pull_messages # imports fuction from models.py
 
 # variables
 username = ""
@@ -7,6 +7,8 @@ password = ""
 
 has_logined = False
 
+# Example of what pull message should return
+"""
 posts = [
    {
       'author': 'Server',
@@ -16,7 +18,7 @@ posts = [
       'author': 'Jone Doe',
       'message': 'Test message'
    }
-]
+]"""
 
 app = Flask(__name__)
 
@@ -82,6 +84,8 @@ def send_message():
 
 @app.route('/logined', methods=['POST'])
 def logined():
+   global username
+   global password
    username = request.form['username']
    password = request.form['password']
    print(username, password)
@@ -102,6 +106,9 @@ def append_message(username, message):
 
    # appending new dictionary
    posts.append(new_post)
+
+def reload_chat():
+   pull_messages()
 
 if __name__ == '__main__':
   app.run(debug=True)
