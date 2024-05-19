@@ -5,6 +5,8 @@ body {
 h1 {
     text-align: center;
     padding: 20px;
+    color: rgb(255, 255, 255);
+    background-color: rgb(4, 81, 0);
 }
 
 #chat-history {

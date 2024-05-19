@@ -64,15 +64,15 @@ def sus_music():
 @app.route('/send_message', methods=['POST'])
 def send_message():
     # Access the submitted message from the request form
-    print("test")
     message = request.form['message']
     save_message(username, message)
 
-    return render_template('index.html', message_sent=True)  # Pass data to template
+    add_history()
+
+    return render_template('chat.html', message_sent=True)  # Pass data to template
 
 @app.route('/logined', methods=['POST'])
 def logined():
-   print("is working")
    username = request.form['username']
    password = request.form['password']
    print(username, password)
@@ -86,8 +86,9 @@ def logined():
 
 # Append the message to the chat history
 def add_history():
+   print("add history function ran")
    text = "Hello, World!"
-   html = render_template('index.html')
+   html = render_template('chat.html')
    new_html = html.replace("Old text", text)
    return new_html
 
