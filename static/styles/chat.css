@@ -41,7 +41,7 @@ h1 {
   }
   
   .text-container p.author {
-    background-color: #F5F5F5;  
+    background-color: rgb(4, 81, 0); 
     padding: 5px 10px;  
     margin-top: 10px;  
     font-style: italic;  
