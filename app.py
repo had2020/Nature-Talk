@@ -65,8 +65,10 @@ def send_message():
 
 @app.route('/logined', methods=['POST'])
 def logined():
+   print("is working")
    username = request.form['username']
    password = request.form['password']
+   print(username, password)
 
    login_func(username, password)
 
