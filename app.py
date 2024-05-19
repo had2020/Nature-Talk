@@ -35,7 +35,10 @@ def about():
 
 @app.route('/accounts')
 def accounts():
-   return render_template('account.html')
+   if has_logined == True:
+      return render_template('account.html')
+   else:
+      return render_template('login_waring.html')
 
 @app.route('/signed_in')
 def signed_in():
@@ -71,6 +74,8 @@ def logined():
    print(username, password)
 
    login_func(username, password)
+
+   has_logined = True
 
    return render_template('signed_in.html')
 
