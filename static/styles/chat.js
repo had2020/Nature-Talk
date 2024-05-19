@@ -9,4 +9,6 @@ function addMessage(message, type) {
     $("#chat-history").scrollTop($("#chat-history")[0].scrollHeight);
 }
 
-addMessage("Hello Welcome to this chat")
+//addMessage("Hello Welcome to this chat")
+
+// deprecated way to add old messages to history

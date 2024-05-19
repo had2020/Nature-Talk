@@ -1,11 +1,26 @@
 from flask import Flask, render_template, request
-from models import login_func, save_message # imports fuction from models.py
+from models import login_func, save_message, pull_messages # imports fuction from models.py
 
 # variables
 username = ""
 password = ""
 
 has_logined = False
+
+message_history = None
+
+# Example of what pull message should return
+"""
+posts = [
+   {
+      'author': 'Server',
+      'message': 'Welcome to the chat'
+   },
+   {
+      'author': 'Jone Doe',
+      'message': 'Test message'
+   }
+]"""
 
 app = Flask(__name__)
 
@@ -19,7 +34,8 @@ def chat():
    if has_logined == False:
       return render_template('login_waring.html')
    if has_logined == True:
-      return render_template('chat.html')
+      reload_chat()
+      return render_template('chat.html', posts=message_history)
 
 @app.route('/mission')
 def mission():
@@ -33,10 +49,10 @@ def qna():
 def about():
    return render_template('about.html')
 
-@app.route('/accounts')
-def accounts():
+@app.route('/account')
+def account():
    if has_logined == True:
-      return render_template('account.html')
+      return render_template('account.html', name = username)
    else:
       return render_template('login_waring.html')
 
@@ -60,22 +76,34 @@ def test_vid():
 def sus_music():
    return render_template('sus_music.html')
 
+@app.route('/pollution_cal')
+def pollution_calulator():
+   return render_template('pollution_cal.html')
+
+# pollution calulator 
+@app.route('/calulated_trash')
+def calulate_trash():
+   if request.method == 'POST':
+      user_text = request.form.get('user_input')
+      return f"entered: {user_text}"
+   else:
+      return render_template('pollution_cal.html')
+
+
+
 # chat and account page methods
 @app.route('/send_message', methods=['POST'])
 def send_message():
     # Access the submitted message from the request form
-    print("test")
     message = request.form['message']
     save_message(username, message)
 
-    # Append the message to the chat history
-    # chat_history.append(str(username, ": ", message))
-
-    return render_template('index.html', message_sent=True)  # Pass data to template
+    return render_template('chat.html', message_sent=True)  # Pass data to template
 
 @app.route('/logined', methods=['POST'])
 def logined():
-   print("is working")
+   global username
+   global password
    username = request.form['username']
    password = request.form['password']
    print(username, password)
@@ -86,6 +114,21 @@ def logined():
    has_logined = True
 
    return render_template('signed_in.html')
+
+def append_message(username, message):
+   # creating the dictionary, to append
+   new_post = {
+      'author': username,  
+      'message': message
+   }
+
+   # appending new dictionary
+   #posts.append(new_post) TODO finalizing messaging feature, and adding reload button to run reload_chat()
+
+def reload_chat():
+   global message_history
+   message_history = pull_messages()
+
 
 if __name__ == '__main__':
   app.run(debug=True)

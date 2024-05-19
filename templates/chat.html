@@ -9,6 +9,12 @@
 <body>
     <h1>Chat Room</h1>
     <div id="chat-history">
+        {% for post in posts %}
+        <div class="text-container">
+            <h3>{{ post.message }}</h3>
+            <p>{{post.author}}</p>
+        </div>
+        {% endfor %}
         </div>
         <form id="message-form" action="{{ url_for('send_message') }}" method="POST">
         <input type="text" name="message" placeholder="Type your message here..." required>
@@ -16,16 +22,4 @@
     </form>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="{{ url_for('static', filename='styles/chat.js') }}"></script>
-    <script>
-        var eventSource = new EventSource("/messages"); // Replace with your Flask route
-
-        eventSource.onmessage = function(event) {
-            var message = JSON.parse(event.data);
-            addMessage(message.text, message.type); // Call your existing addMessage function
-        };
-
-        function addMessage(message, type) {
-            // Same as before (create and display message)
-        }
-    </script>
 </html>
