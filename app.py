@@ -87,6 +87,10 @@ def games():
 def game1():
    return render_template('game1.html')
 
+@app.route('/list')
+def list():
+   return render_template('list.html')
+
 # pollution calulator 
 @app.route('/calulated_trash')
 def calulate_trash():
