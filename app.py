@@ -68,9 +68,6 @@ def send_message():
     message = request.form['message']
     save_message(username, message)
 
-    # Append the message to the chat history
-    # chat_history.append(str(username, ": ", message))
-
     return render_template('index.html', message_sent=True)  # Pass data to template
 
 @app.route('/logined', methods=['POST'])
@@ -86,6 +83,13 @@ def logined():
    has_logined = True
 
    return render_template('signed_in.html')
+
+# Append the message to the chat history
+def add_history():
+   text = "Hello, World!"
+   html = render_template('index.html')
+   new_html = html.replace("Old text", text)
+   return new_html
 
 if __name__ == '__main__':
   app.run(debug=True)
