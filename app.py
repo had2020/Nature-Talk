@@ -35,7 +35,10 @@ def about():
 
 @app.route('/accounts')
 def accounts():
-   return render_template('account.html')
+   if has_logined == True:
+      return render_template('account.html')
+   else:
+      return render_template('login_waring.html')
 
 @app.route('/signed_in')
 def signed_in():
@@ -49,6 +52,10 @@ def login():
 def home():
    return render_template('home.html')
 
+@app.route('/test_vid')
+def test_vid():
+   return render_template('test_vid.html')
+
 # chat and account page methods
 @app.route('/send_message', methods=['POST'])
 def send_message():
@@ -60,7 +67,7 @@ def send_message():
     # Append the message to the chat history
     # chat_history.append(str(username, ": ", message))
 
-
+    add_chat_message("test message add")
     return render_template('index.html', message_sent=True)  # Pass data to template
 
 @app.route('/logined', methods=['POST'])
@@ -72,7 +79,15 @@ def logined():
 
    login_func(username, password)
 
+   global has_logined
+   has_logined = True
+
    return render_template('signed_in.html')
+
+# adding chat messages
+#def add_chat_message(text):
+  # message = request.form["<div class="message undefined">Hello Welcome to this chat</div>"]
+   #message.append({"message": text})
 
 if __name__ == '__main__':
   app.run(debug=True)
