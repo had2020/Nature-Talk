@@ -83,7 +83,7 @@ def calulate_trash():
       user_text = request.form.get('user_input')
       return f"entered: {user_text}"
    else:
-      return render_template('template.html')
+      return render_template('pollution_cal.html')
 
 
 
