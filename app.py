@@ -79,6 +79,14 @@ def sus_music():
 def pollution_calulator():
    return render_template('pollution_cal.html')
 
+@app.route('/games')
+def games():
+   return render_template('games.html')
+
+@app.route('/game1')
+def game1():
+   return render_template("game1.html")
+
 # pollution calulator 
 @app.route('/calulated_trash')
 def calulate_trash():
