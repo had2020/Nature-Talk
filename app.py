@@ -89,8 +89,6 @@ def calulate_trash():
    else:
       return render_template('pollution_cal.html')
 
-
-
 # chat and account page methods
 @app.route('/send_message', methods=['POST'])
 def send_message():
