@@ -85,9 +85,9 @@ def logined():
    return render_template('signed_in.html')
 
 # adding chat messages
-#def add_chat_message(text):
-  # message = request.form["<div class="message undefined">Hello Welcome to this chat</div>"]
-   #message.append({"message": text})
+def add_chat_message(text):
+   message = request.form
+   message.append({"message": text})
 
 if __name__ == '__main__':
   app.run(debug=True)
