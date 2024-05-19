@@ -75,6 +75,7 @@ def logined():
 
    login_func(username, password)
 
+   global has_logined
    has_logined = True
 
    return render_template('signed_in.html')
