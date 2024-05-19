@@ -9,3 +9,7 @@ https://prod.liveshare.vsengsaas.visualstudio.com/join?728708CEDD22112ACC59F6425
 live vid 
 
 https://www.friendsofblackwater.org/waterfowl-cam.html 
+
+presentation
+
+https://docs.google.com/presentation/d/1eADGOx-D371sOBUaYMajjLf1NnNYbs8CibiyhXqNnmk/edit?usp=sharing
