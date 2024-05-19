@@ -76,6 +76,16 @@ def test_vid():
 def sus_music():
    return render_template('sus_music.html')
 
+# pollution calulator 
+@app.route('/calulated_trash')
+    if request.method == 'POST':
+        user_text = request.form.get('user_input')
+        return f"entered: {user_text}"
+    else:
+        return render_template('template.html')
+
+
+
 # chat and account page methods
 @app.route('/send_message', methods=['POST'])
 def send_message():
