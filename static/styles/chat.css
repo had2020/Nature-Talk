@@ -47,3 +47,10 @@ h1 {
     font-style: italic;  
   }
   
+  #message-form {
+    float: left;
+}
+
+#reload-form {  /* Assuming the second form has ID "reload-form" */
+    float: left;
+}

@@ -10,7 +10,6 @@ has_logined = False
 message_history = None
 
 # Example of what pull message should return
-"""
 posts = [
    {
       'author': 'Server',
@@ -20,7 +19,7 @@ posts = [
       'author': 'Jone Doe',
       'message': 'Test message'
    }
-]"""
+]
 
 app = Flask(__name__)
 
@@ -96,7 +95,9 @@ def send_message():
     message = request.form['message']
     save_message(username, message)
 
-    return render_template('chat.html', message_sent=True)  # Pass data to template
+    reload_chat()
+
+    return render_template('chat.html', message_sent=True, posts=message_history)  # Pass data to template
 
 @app.route('/logined', methods=['POST'])
 def logined():
@@ -120,13 +121,14 @@ def append_message(username, message):
       'message': message
    }
 
-   # appending new dictionary
-   #posts.append(new_post) TODO finalizing messaging feature, and adding reload button to run reload_chat()
-
 def reload_chat():
    global message_history
    message_history = pull_messages()
 
+@app.route('/reload_chat_web', methods=['POST'])
+def reload_chat_web():
+   reload_chat()
+   return render_template('chat.html', posts=message_history)
 
 if __name__ == '__main__':
   app.run(debug=True)

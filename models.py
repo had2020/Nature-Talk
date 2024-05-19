@@ -40,12 +40,6 @@ def login_func(username, password):
             print('Component %s found with rowid %s'%(name,data[0]))
 
 def pull_messages():
-    """Connects to the database, retrieves messages, and returns them as a dictionary.
-
-    Returns:
-        A dictionary where keys are usernames and values are lists of messages.
-    """
-
     conn = sqlite3.connect('Database.db')  # Connecting or creating a database from filepath
     cursor = conn.cursor()
 
@@ -60,11 +54,12 @@ def pull_messages():
     messages = cursor.fetchall()
 
     # Convert messages to a dictionary
-    message_dict = {}
-    for name, message in messages:
-        if name not in message_dict:
-            message_dict[name] = []
-        message_dict[name].append(message)
+    cursor.execute("SELECT name, message FROM messages")
+    messages = cursor.fetchall()
 
-    conn.close()
-    return message_dict
+    posts = []
+    for name, message in messages:
+        post = {"author": name, "message": message}
+        posts.append(post)
+
+    return posts

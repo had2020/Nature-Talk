@@ -19,7 +19,10 @@
         <form id="message-form" action="{{ url_for('send_message') }}" method="POST">
         <input type="text" name="message" placeholder="Type your message here..." required>
         <button type="submit">Send</button>
-    </form>
+        </form>
+        <form id="reload-form" action="{{ url_for('reload_chat_web') }}" method="POST">
+        <button type="submit">Reload</button>
+        </form>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="{{ url_for('static', filename='styles/chat.js') }}"></script>
 </html>
