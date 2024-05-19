@@ -76,6 +76,10 @@ def test_vid():
 def sus_music():
    return render_template('sus_music.html')
 
+@app.route('/pollution_cal')
+def pollution_calulator():
+   return render_template('pollution_cal.html')
+
 # pollution calulator 
 @app.route('/calulated_trash')
 def calulate_trash():
