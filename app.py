@@ -78,11 +78,12 @@ def sus_music():
 
 # pollution calulator 
 @app.route('/calulated_trash')
-    if request.method == 'POST':
-        user_text = request.form.get('user_input')
-        return f"entered: {user_text}"
-    else:
-        return render_template('template.html')
+def calulate_trash():
+   if request.method == 'POST':
+      user_text = request.form.get('user_input')
+      return f"entered: {user_text}"
+   else:
+      return render_template('template.html')
 
 
 
