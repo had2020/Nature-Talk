@@ -92,7 +92,7 @@ def list():
    return render_template('list.html')
 
 # pollution calulator 
-@app.route('/calulated_trash')
+@app.route('/pollution_cal')
 def calulate_trash():
    if request.method == 'POST':
       user_text = request.form.get('user_input')
