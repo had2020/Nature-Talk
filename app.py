@@ -56,6 +56,10 @@ def home():
 def test_vid():
    return render_template('test_vid.html')
 
+@app.route('sus_music')
+def sus_music():
+   return render_template('sus_music.html')
+
 # chat and account page methods
 @app.route('/send_message', methods=['POST'])
 def send_message():
@@ -67,7 +71,6 @@ def send_message():
     # Append the message to the chat history
     # chat_history.append(str(username, ": ", message))
 
-    add_chat_message("test message add")
     return render_template('index.html', message_sent=True)  # Pass data to template
 
 @app.route('/logined', methods=['POST'])
@@ -83,11 +86,6 @@ def logined():
    has_logined = True
 
    return render_template('signed_in.html')
-
-# adding chat messages
-def add_chat_message(text):
-   message = request.form
-   message.append({"message": text})
 
 if __name__ == '__main__':
   app.run(debug=True)
