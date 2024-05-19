@@ -1,4 +1,4 @@
-<!doctype html>
+<<!doctype html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -63,8 +63,14 @@
     <nav>
       <a href="home">Home</a>
   </nav>
+  <div class="question">
+    <section>
+    <h2>The Equation is vehicle * passengers * distance traveled in kilometers=CO2 emits</h2>
+    <p> 14 g of CO2 = train <br /> 68 g CO2 = bus <br /> 285 g CO2 = plane <br /> 72 g CO2 = two-wheel motor <br /> 42 g CO2 =car <br /> 55 g of CO2 = car 
+    </p>
   <br />
   <br />
+  
     <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -98,26 +104,35 @@
     </style>
 </head>
 <body>
-    <div class="calculator">
-        <input type="text" id="display" disabled>
-        <input type="button" value="1" onclick="addToDisplay('1')">
-        <input type="button" value="2" onclick="addToDisplay('2')">
-        <input type="button" value="3" onclick="addToDisplay('3')">
-        <input type="button" value="+" onclick="addToDisplay('+')">
-        <input type="button" value="4" onclick="addToDisplay('4')">
-        <input type="button" value="5" onclick="addToDisplay('5')">
-        <input type="button" value="6" onclick="addToDisplay('6')">
-        <input type="button" value="-" onclick="addToDisplay('-')">
-        <input type="button" value="7" onclick="addToDisplay('7')">
-        <input type="button" value="8" onclick="addToDisplay('8')">
-        <input type="button" value="9" onclick="addToDisplay('9')">
-        <input type="button" value="*" onclick="addToDisplay('*')">
+        <div class="calculator">
+            <input type="text" id="display" disabled>
+            <input type="button" value="1" onclick="addToDisplay('1')">
+            <input type="button" value="2" onclick="addToDisplay('2')">
+            <input type="button" value="3" onclick="addToDisplay('3')">
+            
+            <input type="button" value="4" onclick="addToDisplay('4')">
+            <input type="button" value="5" onclick="addToDisplay('5')">
+            <input type="button" value="6" onclick="addToDisplay('6')">
+            
+            <input type="button" value="7" onclick="addToDisplay('7')">
+            <input type="button" value="8" onclick="addToDisplay('8')">
+            <input type="button" value="9" onclick="addToDisplay('9')">
+            <input type="button" value="0" onclick="addToDisplay('0')">
+            <input type="button" value="car" onclick="addToDisplay('55')">
+            <input type="button" value="small car" onclick="addToDisplay('42')">
+            <input type="button" value="bus" onclick="addToDisplay('68')">
+            
+            <input type="button" value="plane" onclick="addToDisplay('285')">
+            <input type="button" value="2WD" onclick="addToDisplay('72')">
+            <input type="button" value="train" onclick="addToDisplay('14')">
+            <input type="button" value="*" onclick="addToDisplay('*')">
+
+            
+            <input type="button" value="=" onclick="calculate()">
+            <input type="button" value="/" onclick="addToDisplay('/')">
         <input type="button" value="C" onclick="clearDisplay()">
-        <input type="button" value="0" onclick="addToDisplay('0')">
-        <input type="button" value="=" onclick="calculate()">
-        <input type="button" value="/" onclick="addToDisplay('/')">
-      
-    </div>
+        
+        </div>
 
     <script>
         function addToDisplay(value) {
@@ -137,4 +152,7 @@
         }
     </script>
 </body>
+</th>
+<br />
+
 </html>
